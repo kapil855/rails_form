@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+<table class="table table-dark table-striped">
+  <thead>
+    <tr>
+      <th colspan="7"><h3 class="text-center text-success"><b>Property Details</b></h3></th>
+    </tr>
+    <tr>
+      <th class="text-warning">Name</th>
+      <th class="text-warning">Price</th>
+      <th class="text-warning">Address</th>
+      <th class="text-warning">Image</th>
+      <th class="text-warning">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= user.name %></td>
+        <td><%= user.price %></td>
+        <td><%= user.address %></td>
+        <td><%= image_tag user.image.url, class: "w-25 "%></td>
+        <td>
+          <div class="dropdown">
+            <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown">
+              Action
+            </button>
+            <div class="dropdown-menu">
+              <%= link_to 'Show', user_path(user), data: { toogle: "modal", target: "#myModal", remote: true }, class: "dropdown-item" %>
+              <%= link_to 'Edit', edit_user_path(user), class: "dropdown-item" %>
+              <%= button_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' },class: "dropdown-item" %>
+            </div>
+          <div>
+        </td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+<br>
+<%= paginate @users %>
+
+<%= link_to 'New User', new_user_path %>
+<div <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+</div>
+ 

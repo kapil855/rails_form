@@ -1,0 +1,15 @@
+<div class="modal-dialog">
+  <div class="modal-content">
+    <div class="modal-header">
+      <h1 class="modal-title">Propert Details</h1>
+      <button type="button" class="close" data-dismiss="modal">×</button>
+    </div>
+    <div class="modal-body">
+      <h3>Some text to enable scrolling..</h3>
+      <%= image_tag @user.image.url, class: "w-100" %>
+      <h1 class="card-title text-primary"><%= @user.name %></h1>
+      <h4 class="card-text text-success"><%= @user.address %></h4>
+      <h5 class="card-text"><%= @user.price %>/-</h5>
+    </div>
+  </div>
+</div>
